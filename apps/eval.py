@@ -20,6 +20,8 @@ from PIL import Image
 import torchvision.transforms as transforms
 import glob
 import tqdm
+import os
+os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
 # get options
 opt = BaseOptions().parse()

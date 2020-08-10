@@ -108,6 +108,16 @@ python -m apps.prt_util -i {path_to_rp_dennis_posed_004_OBJ}
 python -m apps.render_data -i {path_to_rp_dennis_posed_004_OBJ} -o {path_to_training_data} [-e]
 ```
 
+3. make image pretreatment. Make image pad with 512X512 under pretreatment/image_unpadding to pretreatment/image_unmasking
+```
+python pretreatment/padding.py
+```
+
+4. make image pretreatment. Image masking under pretreatment/image_unmasking to sample_images
+```
+python pretreatment/masking.py
+```
+
 ## Training (Linux Only)
 
 Warning: the following code becomes extremely slow without [pyembree](https://github.com/scopatz/pyembree). Please make sure you install pyembree.

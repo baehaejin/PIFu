@@ -76,6 +76,19 @@ Warning: I found that outdated NVIDIA drivers may cause errors with EGL. If you 
 - Open .obj file in Meshlab
 
 
+##Pretreatment
+
+1. make image pretreatment. Make image pad with 512X512 under pretreatment/image_unpadding to pretreatment/image_unmasking
+```
+python pretreatment/padding.py
+```
+
+2. make image pretreatment. Image masking under pretreatment/image_unmasking to sample_images
+```
+python pretreatment/masking.py
+```
+
+
 ## Demo
 Warning: The released model is trained with mostly upright standing scans with weak perspectie projection and the pitch angle of 0 degree. Reconstruction quality may degrade for images highly deviated from trainining data.
 1. run the following script to download the pretrained models from the following link and copy them under `./PIFu/checkpoints/`.
@@ -106,16 +119,6 @@ python -m apps.prt_util -i {path_to_rp_dennis_posed_004_OBJ}
 2. run the following script. Under the specified data path, the code creates folders named `GEO`, `RENDER`, `MASK`, `PARAM`, `UV_RENDER`, `UV_MASK`, `UV_NORMAL`, and `UV_POS`. Note that you may need to list validation subjects to exclude from training in `{path_to_training_data}/val.txt` (this tutorial has only one subject and leave it empty). If you wish to render images with headless servers equipped with NVIDIA GPU, add -e to enable EGL rendering.
 ```
 python -m apps.render_data -i {path_to_rp_dennis_posed_004_OBJ} -o {path_to_training_data} [-e]
-```
-
-3. make image pretreatment. Make image pad with 512X512 under pretreatment/image_unpadding to pretreatment/image_unmasking
-```
-python pretreatment/padding.py
-```
-
-4. make image pretreatment. Image masking under pretreatment/image_unmasking to sample_images
-```
-python pretreatment/masking.py
 ```
 
 ## Training (Linux Only)

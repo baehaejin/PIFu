@@ -1,5 +1,5 @@
-from PIL import Image, ImageOps
-import os, cv2
+from PIL import Image
+import os
 
 # make padding under img_dir:"images_unpadding"
 
@@ -7,18 +7,12 @@ def has_img_ext(fname):
     ext = os.path.splitext(fname)[1]
     return ext in ('.jpg', '.jpeg', '.png')
 
-def search(dir):
-    files = os.listdir(dir)
-    for file in files:
-        fullFilename = os.path.join(dir, file)
-        print(fullFilename)
-
 # padding size
 padding_size = 512
 dir = "pretreatment/images_unpadding"
 img_dir = os.path.realpath(dir)
-print(os.path.realpath(img_dir))
-img_paths = [os.path.join(dir, k) for k in sorted(os.listdir(img_dir)) if has_img_ext(k)]
+# print(os.path.realpath(img_dir))
+img_paths = [os.path.join(img_dir, k) for k in sorted(os.listdir(img_dir)) if has_img_ext(k)]
 for i, img_path in enumerate(img_paths, 1):
     print('[{:3d}/{:3d}] padding image... '.format(i, len(img_paths)))
     img = Image.open(img_path)

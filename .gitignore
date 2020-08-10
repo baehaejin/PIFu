@@ -11,6 +11,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+sample_images/
 results/
 pretreatment/images_unmaking
 pretreatment/images_unpadding

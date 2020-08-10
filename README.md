@@ -76,7 +76,7 @@ Warning: I found that outdated NVIDIA drivers may cause errors with EGL. If you 
 - Open .obj file in Meshlab
 
 
-##Pretreatment
+## Pretreatment
 
 1. make image pretreatment. Make image pad with 512X512 under pretreatment/image_unpadding to pretreatment/image_unmasking
 ```
